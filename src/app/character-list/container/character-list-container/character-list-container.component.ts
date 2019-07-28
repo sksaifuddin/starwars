@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterListServiceService } from '../../services/character-list-service.service';
+import { Character } from '../../models/character.model';
 
 @Component({
   selector: 'app-character-list-container',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-list-container.component.css']
 })
 export class CharacterListContainerComponent implements OnInit {
-
-  constructor() { }
+  charactersData: Character[];
+  constructor(private CharacterList: CharacterListServiceService) { }
 
   ngOnInit() {
-  }
+    this.CharacterList.getAllCharacters().subscribe(
+      (data) => this.charactersData = data,
+      (err) => console.log('Error while fetching the character data', err),
+    );
+}
+
 
 }

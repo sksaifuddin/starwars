@@ -1,0 +1,7 @@
+.pagination {
+  justify-content: flex-start !important;
+}
+
+.tableWidth {
+  width: 25%;
+}
