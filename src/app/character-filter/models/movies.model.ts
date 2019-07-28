@@ -21,3 +21,8 @@ export class MoviesResponse {
   previous: string;
   results: Movies[];
 }
+
+export class SelectLabels {
+    movie: string;
+    species: string;
+}

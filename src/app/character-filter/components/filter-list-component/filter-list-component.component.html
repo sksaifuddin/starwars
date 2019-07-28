@@ -5,18 +5,13 @@
     </tr>
     <tr>
       <td>
-          <mat-form-field>
-              <mat-label>Movies</mat-label>
-              <mat-select>
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                  {{food.viewValue}}
-                </mat-option>
-              </mat-select>
-          </mat-form-field>
+         <app-filter-dropdown-component [selectionList] = 'this.movieList' [label] = "labels.movies"></app-filter-dropdown-component>
       </td>
     </tr>
     <tr>
-      <td>Filter2</td>
+      <td>
+          <app-filter-dropdown-component [selectionList]= 'this.speciesList' [label]="labels.species"></app-filter-dropdown-component>
+      </td>
     </tr>
     <tr>
       <td>Filter3</td>

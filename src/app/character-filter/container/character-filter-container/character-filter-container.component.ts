@@ -12,10 +12,7 @@ export class CharacterFilterContainerComponent implements OnInit {
   constructor(private filterService: CharacterFilterService) { }
 
   ngOnInit() {
-    this.filterService.getAllMovies().subscribe(
-      (data) => this.movieList = data,
-      (err) => console.log('Error while fetching Movies', err)
-    );
+
   }
 
 }

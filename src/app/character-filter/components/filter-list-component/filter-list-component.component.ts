@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterFilterService } from '../../services/character-filter.service';
+import { Movies, SelectLabels } from '../../models/movies.model';
+import { SpeciesService } from '../../services/species.service';
+import { Species } from '../../models/species.model';
 
 @Component({
   selector: 'app-filter-list-component',
@@ -6,18 +10,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-list-component.component.css']
 })
 export class FilterListComponentComponent implements OnInit {
-  foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
-  constructor() { }
+  movieList: Movies[];
+  speciesList: Species[];
+  labels = {
+    movies: 'Movie',
+    species: 'Species'
+  };
+
+  constructor(private filterService: CharacterFilterService, private speciesService: SpeciesService) { }
 
   ngOnInit() {
+    this.getAllMoviesList();
+    this.getAllSpeciesList();
   }
 
-  getAllMovies() {
-    console.log('hello');
+  getAllMoviesList() {
+    this.filterService.getAllMovies().subscribe(
+      (data) => this.movieList = data,
+      (err) => console.log('Error while fetching Movies', err)
+    );
+  }
+
+  getAllSpeciesList() {
+    this.speciesService.getAllSpecies().subscribe(
+      (data) => this.speciesList = data,
+      (err) => console.log('Error while fetching Species', err)
+    );
   }
 
 }

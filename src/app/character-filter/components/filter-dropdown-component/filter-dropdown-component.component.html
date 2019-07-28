@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-label> {{this.label}} </mat-label>
+    <mat-select>
+        <mat-option [value]=""> Select a {{this.label}} </mat-option>
+      <mat-option *ngFor="let data of selectData" [value]="data">
+        <span *ngIf="this.label === 'Movie'"> {{data.title}}</span>
+        <span *ngIf="this.label === 'Species'" > {{data.name}}</span>
+      </mat-option>
+    </mat-select>
+</mat-form-field>

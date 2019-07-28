@@ -12,6 +12,7 @@ import { CharacterFilterContainerComponent } from './character-filter/container/
 import { HttpClientModule } from '@angular/common/http';
 import { FilterListComponentComponent } from './character-filter/components/filter-list-component/filter-list-component.component';
 import {MatSelectModule} from '@angular/material/select';
+import { FilterDropdownComponentComponent } from './character-filter/components/filter-dropdown-component/filter-dropdown-component.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatSelectModule} from '@angular/material/select';
     CharacterDetailsContainerComponent,
     CharacterListComponentComponent,
     CharacterFilterContainerComponent,
-    FilterListComponentComponent
+    FilterListComponentComponent,
+    FilterDropdownComponentComponent
   ],
   imports: [
     BrowserAnimationsModule,
