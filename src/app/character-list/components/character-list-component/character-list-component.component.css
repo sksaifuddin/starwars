@@ -5,3 +5,11 @@
 .tableWidth {
   width: 25%;
 }
+
+.table-container {
+  text-align: center;
+}
+
+.align-table {
+  display: inline-block;
+}

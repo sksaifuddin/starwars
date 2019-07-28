@@ -1,0 +1,26 @@
+<div>
+  <table>
+    <tr>
+      <th>Filters</th>
+    </tr>
+    <tr>
+      <td>
+          <mat-form-field>
+              <mat-label>Movies</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select>
+          </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>Filter2</td>
+    </tr>
+    <tr>
+      <td>Filter3</td>
+    </tr>
+  </table>
+</div>
+

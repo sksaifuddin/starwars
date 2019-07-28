@@ -8,13 +8,19 @@ import { CharacterListContainerComponent } from './character-list/container/char
 import { CharacterDetailsContainerComponent } from './character-details/containers/character-details-container/character-details-container.component';
 import { CharacterListComponentComponent } from './character-list/components/character-list-component/character-list-component.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CharacterFilterContainerComponent } from './character-filter/container/character-filter-container/character-filter-container.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FilterListComponentComponent } from './character-filter/components/filter-list-component/filter-list-component.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterListContainerComponent,
     CharacterDetailsContainerComponent,
-    CharacterListComponentComponent
+    CharacterListComponentComponent,
+    CharacterFilterContainerComponent,
+    FilterListComponentComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -22,6 +28,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AppRoutingModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
