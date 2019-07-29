@@ -3,7 +3,7 @@
 }
 
 .tableWidth {
-  width: 25%;
+  width: 80%;
 }
 
 .table-container {
@@ -12,4 +12,14 @@
 
 .align-table {
   display: inline-block;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.text-style {
+  color: blue;
+  cursor: pointer;
+  font-size: 16px;
 }

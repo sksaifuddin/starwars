@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Character } from '../../models/character.model';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-character-list-component',
@@ -13,7 +14,7 @@ export class CharacterListComponentComponent implements OnInit {
   displayedColumns: string[] = ['name'];
   dataSource: MatTableDataSource<Character>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor() { }
+  constructor(private router: Router) { }
 
   @Input('characterDetails')
   set allCharacters(data: Character[]) {
@@ -24,6 +25,13 @@ export class CharacterListComponentComponent implements OnInit {
       }
   }
 
+  getId(character: Character) {
+    if (character) {
+      const characterValues = character.url.split('/');
+      const characterId = +characterValues[5];
+      this.router.navigateByUrl('character/' + characterId);
+    }
+  }
 
   ngOnInit() {
   }
