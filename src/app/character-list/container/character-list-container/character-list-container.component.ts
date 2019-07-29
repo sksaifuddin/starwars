@@ -57,6 +57,7 @@ export class CharacterListContainerComponent implements OnInit {
             return characterData.url;
          }
       }).filter(notUndefined => notUndefined);
+      this.getFilteringData(this.movieFilters, this.speciesFilters, this.birthRangeFilters);
     });
   }
 
