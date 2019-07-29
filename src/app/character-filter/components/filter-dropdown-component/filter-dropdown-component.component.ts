@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movies } from '../../models/movies.model';
 import { Species } from '../../models/species.model';
+import { CharacterFilterService } from '../../services/character-filter.service';
 
 @Component({
   selector: 'app-filter-dropdown-component',
@@ -21,9 +22,17 @@ export class FilterDropdownComponentComponent implements OnInit {
   @Input() label;
 
 
-  constructor() { }
+  constructor(private filterService: CharacterFilterService) { }
 
   ngOnInit() {
+  }
+
+  setSelectedFilter(filterValue) {
+    if (filterValue.name) {
+      this.filterService.filterByMovie(filterValue);
+    } else {
+      this.filterService.filterBySpecies(filterValue);
+    }
   }
 
 }

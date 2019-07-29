@@ -9,7 +9,7 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./character-list-component.component.css']
 })
 export class CharacterListComponentComponent implements OnInit {
-  characters: Character[];
+  characters: Character[] = [];
   displayedColumns: string[] = ['name'];
   dataSource: MatTableDataSource<Character>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -17,11 +17,10 @@ export class CharacterListComponentComponent implements OnInit {
 
   @Input('characterDetails')
   set allCharacters(data: Character[]) {
-      if (data.length > 0) {
+      if (data) {
         this.characters = data;
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
-        console.log('this.cha', this.characters);
       }
   }
 

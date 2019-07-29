@@ -1,0 +1,18 @@
+<div>
+  <div class="row">
+   <form [formGroup]="birthForm">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <mat-form-field class="width100">
+            <input matInput #startBirthYear (change)="submitDate()" type="text" id="startBirthYear"  formControlName="startBirthYear" placeholder="Select a Start Date " autofocus>
+            <mat-error *ngIf="this.birthForm.get('startBirthYear').errors"> Please Enter a Valid Date </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <mat-form-field class="width100">
+            <input matInput #endBirthYear (change)="submitDate()" type="text" id="endBirthYear"  formControlName="endBirthYear" placeholder="Select a End Date" autofocus>
+            <mat-error *ngIf="this.birthForm.get('endBirthYear').errors"> Please Enter a Valid Date </mat-error>
+        </mat-form-field>
+    </div>
+  </form>
+  </div>
+</div>

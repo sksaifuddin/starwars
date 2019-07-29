@@ -11,7 +11,7 @@ import { Species } from '../../models/species.model';
 })
 export class FilterListComponentComponent implements OnInit {
   movieList: Movies[];
-  speciesList: Species[];
+  speciesList: Species[] = [];
   labels = {
     movies: 'Movie',
     species: 'Species'
@@ -32,10 +32,15 @@ export class FilterListComponentComponent implements OnInit {
   }
 
   getAllSpeciesList() {
-    this.speciesService.getAllSpecies().subscribe(
-      (data) => this.speciesList = data,
-      (err) => console.log('Error while fetching Species', err)
-    );
+    for(let i = 1; i <= 4; i++) {
+      this.speciesService.getSpecies(i).subscribe(
+        (data) => {
+          console.log('data', data);
+          this.speciesList.push(...data['results']);
+        },
+        (err) => console.log(err)
+      );
+    }
   }
 
 }

@@ -13,6 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterListComponentComponent } from './character-filter/components/filter-list-component/filter-list-component.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FilterDropdownComponentComponent } from './character-filter/components/filter-dropdown-component/filter-dropdown-component.component';
+import { CharacterDetailComponentComponent } from './character-details/components/character-detail-component/character-detail-component.component';
+import { FilterBirthyearComponentComponent } from './character-filter/components/filter-birthyear-component/filter-birthyear-component.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +28,9 @@ import { FilterDropdownComponentComponent } from './character-filter/components/
     CharacterListComponentComponent,
     CharacterFilterContainerComponent,
     FilterListComponentComponent,
-    FilterDropdownComponentComponent
+    FilterDropdownComponentComponent,
+    CharacterDetailComponentComponent,
+    FilterBirthyearComponentComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -31,7 +39,11 @@ import { FilterDropdownComponentComponent } from './character-filter/components/
     MatTableModule,
     MatPaginatorModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
