@@ -1,3 +1,6 @@
+<div class="heading-alignment">
+  <p class="heading-font"><b> Character Details </b> </p>
+</div>
 <div class="table-alignment">
   <div class="row table-padding">
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -13,8 +16,8 @@
         Species
     </div>
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-        <span *ngFor=' let species of this.speciesDetails; let x = index'>
-          {{species.name}}<span *ngIf="this.speciesDetails.length > 1">, </span>
+        <span *ngFor=' let species of this.speciesDetails'>
+          {{species.name}}<span *ngIf="this.speciesDetails.length > 1">,</span>
         </span>
     </div>
   </div>
@@ -24,7 +27,7 @@
           Space Ships
       </div>
       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-          <span *ngFor=' let ships of this.spaceShipsDetails; let i = index'>
+          <span *ngFor=' let ships of this.spaceShipsDetails'>
             {{ships.name}}<span *ngIf="this.spaceShipsDetails.length > 1">,</span>
           </span>
     </div>
@@ -36,7 +39,7 @@
       </div>
       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
           <span *ngFor=' let movies of this.moviesDetails'>
-            {{movies.title}}<span *ngIf="this.spaceShipsDetails.length > 1">,</span>
+            {{movies.title}}<span *ngIf="this.moviesDetails.length > 1">,</span>
           </span>
     </div>
   </div>
