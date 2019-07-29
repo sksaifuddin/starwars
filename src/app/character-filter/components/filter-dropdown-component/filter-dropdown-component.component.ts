@@ -14,7 +14,6 @@ export class FilterDropdownComponentComponent implements OnInit {
   @Input('selectionList')
   set selectList(data: Movies[] | Species[]) {
     if (data) {
-      console.log('list', data);
       this.selectData = data;
     }
   }

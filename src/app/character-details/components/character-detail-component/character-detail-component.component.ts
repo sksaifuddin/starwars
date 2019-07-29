@@ -20,14 +20,10 @@ export class CharacterDetailComponentComponent implements OnInit {
   @Input('characterDetails')
   set character(data: Character) {
     if (data) {
-      console.log('dat', data);
       this.characterDetails = data;
       this.getSpeciesData(this.characterDetails.species);
-      console.log('species', this.speciesDetails);
       this.getSpaceShipDetails(this.characterDetails.starships);
-      console.log('starships', this.spaceShipsDetails);
       this.getMoviesData(this.characterDetails.films);
-      console.log('movies', this.moviesDetails);
     }
   }
 

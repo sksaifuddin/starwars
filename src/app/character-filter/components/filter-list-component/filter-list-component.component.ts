@@ -35,7 +35,6 @@ export class FilterListComponentComponent implements OnInit {
     for(let i = 1; i <= 4; i++) {
       this.speciesService.getSpecies(i).subscribe(
         (data) => {
-          console.log('data', data);
           this.speciesList.push(...data['results']);
         },
         (err) => console.log(err)
