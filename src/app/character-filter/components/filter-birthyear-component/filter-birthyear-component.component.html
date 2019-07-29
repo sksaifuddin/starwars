@@ -3,14 +3,14 @@
    <form [formGroup]="birthForm">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <mat-form-field class="width100">
-            <input matInput #startBirthYear (change)="submitDate()" type="text" id="startBirthYear"  formControlName="startBirthYear" placeholder="Select a Start Date " autofocus>
-            <mat-error *ngIf="this.birthForm.get('startBirthYear').errors"> Please Enter a Valid Date </mat-error>
+            <input matInput #startBirthYear (change)="submitDate()" type="text" id="startBirthYear" pattern="[0-9][0-9]*[A-B][B][Y]" formControlName="startBirthYear" placeholder="Give a Start Date " autofocus>
+            <mat-error *ngIf="this.birthForm.get('startBirthYear').errors"> Enter a Valid Date like 20BBY </mat-error>
         </mat-form-field>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <mat-form-field class="width100">
-            <input matInput #endBirthYear (change)="submitDate()" type="text" id="endBirthYear"  formControlName="endBirthYear" placeholder="Select a End Date" autofocus>
-            <mat-error *ngIf="this.birthForm.get('endBirthYear').errors"> Please Enter a Valid Date </mat-error>
+            <input matInput #endBirthYear (change)="submitDate()" type="text" id="endBirthYear" pattern="[0-9][0-9]*[A-B][B][Y]" formControlName="endBirthYear" placeholder="Give a End Date" autofocus>
+            <mat-error *ngIf="this.birthForm.get('endBirthYear').errors"> Please Enter a Valid Date like 30ABY</mat-error>
         </mat-form-field>
     </div>
   </form>

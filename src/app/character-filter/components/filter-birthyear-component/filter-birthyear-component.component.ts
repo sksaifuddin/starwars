@@ -25,9 +25,11 @@ export class FilterBirthyearComponentComponent implements OnInit {
   }
 
   submitDate() {
-    this.birthRange.startDate = this.birthForm.get('startBirthYear').value;
-    this.birthRange.endDate = this.birthForm.get('endBirthYear').value;
-    this.filterService.birthYearFilter.next(this.birthRange);
+    if (this.birthForm.valid) {
+      this.birthRange.startDate = this.birthForm.get('startBirthYear').value;
+      this.birthRange.endDate = this.birthForm.get('endBirthYear').value;
+      this.filterService.birthYearFilter.next(this.birthRange);
+    }
   }
 
 }
