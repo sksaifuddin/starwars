@@ -134,8 +134,8 @@ checkForSingleValueFilters(movieFilters: string[], speciesFilters: string[], bir
 
 getFilteredCharacters(movieFilters: string[], speciesFilters: string[], birthRangeFilters: string[]): string[] {
   let filters;
-  filters = movieFilters.filter(val => speciesFilters.indexOf(val) !== -1);
-  filters = filters.filter(val => birthRangeFilters.indexOf(val) !== -1);
+  filters = this.getDuplicateValues(movieFilters, speciesFilters);
+  filters = this.getDuplicateValues(filters, birthRangeFilters);
   return filters;
 }
 

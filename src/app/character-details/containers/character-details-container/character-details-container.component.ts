@@ -18,7 +18,6 @@ export class CharacterDetailsContainerComponent implements OnInit {
   }
 
   getCharacterData() {
-    // this.route.params.subscribe(value => this.id = value.id);
     const id: number =  +this.route.snapshot.paramMap.get('id');
     this.characterService.getCharacterDetails(id).subscribe(
       (data) => this.characterDetails = data,
