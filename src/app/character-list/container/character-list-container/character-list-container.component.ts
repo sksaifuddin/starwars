@@ -94,31 +94,53 @@ export class CharacterListContainerComponent implements OnInit {
     return birthDate[birthDateLength - 3] + birthDate[birthDateLength - 2] + birthDate[birthDateLength - 1];
   }
 
-getFilteringData(movieFilters: string[] = [], speciesFilters: string[] = [], birthRangeFilters: string[] = [] ) {
+
+
+getFilteringData(movieFilters: string[] = [], speciesFilters: string[] = [], birthRangeFilters: string[] = [] ): void {
   let filters;
   if (movieFilters.length > 0 && speciesFilters.length > 0 && birthRangeFilters.length > 0) {
-    filters = movieFilters.filter(val => speciesFilters.indexOf(val) !== -1);
-    filters = filters.filter(val => birthRangeFilters.indexOf(val) !== -1);
+      filters = this.getFilteredCharacters(movieFilters, speciesFilters, birthRangeFilters);
   } else if (movieFilters.length > 0 && speciesFilters.length > 0) {
-    filters = movieFilters.filter(val => speciesFilters.indexOf(val) !== -1);
+    filters = this.getDuplicateValues(movieFilters, speciesFilters);
   } else if (speciesFilters.length > 0 && birthRangeFilters.length > 0) {
-    filters = speciesFilters.filter(val => birthRangeFilters.indexOf(val) !== -1);
+    filters = this.getDuplicateValues(speciesFilters,birthRangeFilters);
   } else if (movieFilters.length > 0 && birthRangeFilters.length > 0) {
-    filters = movieFilters.filter(val => birthRangeFilters.indexOf(val) !== -1);
-  } else if (movieFilters.length > 0) {
-    filters = movieFilters;
-  } else if (speciesFilters.length > 0) {
-    filters = speciesFilters;
-  } else if(birthRangeFilters.length > 0) {
-    filters = birthRangeFilters;
+    filters = this.getDuplicateValues(movieFilters, birthRangeFilters);
+  } else {
+    filters = this.checkForSingleValueFilters(movieFilters, speciesFilters, birthRangeFilters);
   }
   this.filterCharacterList(filters);
 }
 
+
+
 filterCharacterList(characters: string[]) {
-  const filterCharacters = this.charactersData.filter(val => characters.indexOf(val.url) !== -1 );
-  this.filteredCharacters = filterCharacters;
+  if (characters) {
+    const filterCharacters = this.charactersData.filter(val => characters.indexOf(val.url) !== -1 );
+    this.filteredCharacters = filterCharacters;
+  }
 }
 
+
+checkForSingleValueFilters(movieFilters: string[], speciesFilters: string[], birthRangeFilters: string[]): string[] {
+  if (movieFilters.length > 0) {
+      return movieFilters;
+  } else if (speciesFilters.length > 0) {
+      return speciesFilters;
+  } else if (birthRangeFilters.length > 0) {
+      return birthRangeFilters;
+  }
+}
+
+getFilteredCharacters(movieFilters: string[], speciesFilters: string[], birthRangeFilters: string[]): string[] {
+  let filters;
+  filters = movieFilters.filter(val => speciesFilters.indexOf(val) !== -1);
+  filters = filters.filter(val => birthRangeFilters.indexOf(val) !== -1);
+  return filters;
+}
+
+getDuplicateValues(firstArray: string[], secondArray: string[] ) {
+  return firstArray.filter(val => secondArray.indexOf(val) !== -1);
+}
 
 }

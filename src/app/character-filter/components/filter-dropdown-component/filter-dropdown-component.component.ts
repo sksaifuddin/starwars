@@ -27,10 +27,12 @@ export class FilterDropdownComponentComponent implements OnInit {
   }
 
   setSelectedFilter(filterValue) {
-    if (filterValue.name) {
-      this.filterService.filterByMovie(filterValue);
-    } else {
-      this.filterService.filterBySpecies(filterValue);
+    if (filterValue) {
+      if (filterValue.name) {
+        this.filterService.filterByMovie(filterValue);
+      } else {
+        this.filterService.filterBySpecies(filterValue);
+      }
     }
   }
 
